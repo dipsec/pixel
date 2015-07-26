@@ -1,5 +1,6 @@
 #!/bin/bash
 
+clear
 cd /var/www
 wget https://raw.githubusercontent.com/liorvh/pixel/master/track.php
 touch 1.txt
