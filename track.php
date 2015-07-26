@@ -30,13 +30,19 @@ ob_flush();
 flush();
 ob_end_flush();
 
-$ip=$_SERVER['REMOTE_ADDR'];
-$agent=$_SERVER['HTTP_USER_AGENT'];
-$lang=$_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
-$str = "Email: ".$_GET['e']."\n"."Subject: ".$_GET['s']."\n"."IP Address: ".$ip."\n"."User Agent: ".$agent."\n"."Language: ".$lang."\n"."\n";
-$myFile = "1.txt";
-$fh = fopen($myFile, 'a');
-fwrite($fh, $str);
-fclose($fh);
+$ip = $_SERVER['REMOTE_ADDR'];
+$host = $_SERVER['REMOTE_ADDR'];
+$referer = $_SERVER['HTTP_REFERER'];
+$query = $_SERVER['QUERY_STRING'];
+$agent = $_SERVER['HTTP_USER_AGENT'];
+$realip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+$datetime = date('r');
+$filename = date("m.Y");
+$fp = fopen("log.txt", "a");
+fputs($fp, "--------------------------------------------------------- \r\n");
+fputs($fp, "|Email: ".$_GET['e']."|Date: ".$datetime."|IP: ".$ip."|Host: ".$host."|Agent: ".$agent."|Referer: ".$referer."|Query: ".$query."|RealIP: ".$realip."\r\n");
+fputs($fp, "--------------------------------------------------------- \r\n");
+fclose($fp);
+
 ?>
