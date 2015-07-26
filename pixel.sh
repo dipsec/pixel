@@ -2,8 +2,8 @@
 
 cd /var/www
 wget https://raw.githubusercontent.com/liorvh/pixel/master/track.php
-touch 1.txt
-chmod a+w 1.txt
+touch log.txt
+chmod a+w log.txt
 
 clear
 echo "Email to send to:"
