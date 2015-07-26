@@ -1,6 +1,5 @@
 #!/bin/bash
 
-clear
 cd /var/www
 wget https://raw.githubusercontent.com/liorvh/pixel/master/track.php
 touch 1.txt
@@ -15,3 +14,4 @@ echo "Your external ip is: $myIP"
 echo
 echo "Your tacking URL is:"
 echo "http://$myIP/track.php?e=$email"
+clear
